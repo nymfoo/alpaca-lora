@@ -50,6 +50,7 @@ def train(
     add_eos_token: bool = False,
     group_by_length: bool = False,  # faster, but produces an odd training loss curve
     # wandb params
+    WANDB_DISABLED: str = "true",
     wandb_project: str = "",
     wandb_run_name: str = "",
     wandb_watch: str = "",  # options: false | gradients | all
@@ -76,6 +77,7 @@ def train(
             f"train_on_inputs: {train_on_inputs}\n"
             f"add_eos_token: {add_eos_token}\n"
             f"group_by_length: {group_by_length}\n"
+            f"WANDB_DISABLED: {WANDB_DISABLED}\n"
             f"wandb_project: {wandb_project}\n"
             f"wandb_run_name: {wandb_run_name}\n"
             f"wandb_watch: {wandb_watch}\n"
@@ -108,6 +110,8 @@ def train(
         os.environ["WANDB_WATCH"] = wandb_watch
     if len(wandb_log_model) > 0:
         os.environ["WANDB_LOG_MODEL"] = wandb_log_model
+    if len(WANDB_DISABLED) > 0 and len(WANDB_DISABLED) == "true":
+        os.environ["WANDB_DISABLED"] = "true"
 
     model = LlamaForCausalLM.from_pretrained(
         base_model,
