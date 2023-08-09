@@ -110,7 +110,7 @@ def train(
         os.environ["WANDB_WATCH"] = wandb_watch
     if len(wandb_log_model) > 0:
         os.environ["WANDB_LOG_MODEL"] = wandb_log_model
-    if len(WANDB_DISABLED) > 0 and len(WANDB_DISABLED) == "true":
+    if WANDB_DISABLED == "true":
         os.environ["WANDB_DISABLED"] = "true"
 
     model = LlamaForCausalLM.from_pretrained(
