@@ -36,8 +36,8 @@ Example usage:
 
 ```bash
 python finetune.py \
-    --base_model 'decapoda-research/llama-7b-hf' \
-    --data_path 'yahma/alpaca-cleaned' \
+    --base_model 'nymfoo/llama-7b-hf' \
+    --data_path './ds.json' \
     --output_dir './lora-alpaca'
 ```
 
@@ -45,8 +45,8 @@ We can also tweak our hyperparameters:
 
 ```bash
 python finetune.py \
-    --base_model 'decapoda-research/llama-7b-hf' \
-    --data_path 'yahma/alpaca-cleaned' \
+    --base_model 'nymfoo/llama-7b-hf' \
+    --data_path './ds.json' \
     --output_dir './lora-alpaca' \
     --batch_size 128 \
     --micro_batch_size 4 \
@@ -71,8 +71,8 @@ Example usage:
 ```bash
 python generate.py \
     --load_8bit \
-    --base_model 'decapoda-research/llama-7b-hf' \
-    --lora_weights 'tloen/alpaca-lora-7b'
+    --base_model 'nymfoo/llama-7b-hf' \
+    --lora_weights './lora-alpaca'
 ```
 
 ### Official weights
