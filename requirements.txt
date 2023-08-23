@@ -11,3 +11,4 @@ transformers==4.31.0
 sentencepiece==0.1.99
 gradio==3.39.0
 scipy==1.11.1
+wandb==0.15.8
