@@ -50,7 +50,7 @@ def train(
     add_eos_token: bool = False,
     group_by_length: bool = False,  # faster, but produces an odd training loss curve
     # wandb params
-    WANDB_DISABLED: str = "true",
+    WANDB_DISABLED: str = "false",
     wandb_project: str = "",
     wandb_run_name: str = "",
     wandb_watch: str = "",  # options: false | gradients | all
